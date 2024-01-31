@@ -74,7 +74,7 @@ function banniere_titre_func($atts)
 
 /* HOOK FILTERS */
 
-// STEP 1 
+// STEP 1 - Modifier le titre dans la page d’un outil et dans la page de la liste d’outils
 function the_title_filter($title)
 {
     if (is_single() && in_category('outils') && in_the_loop()) {
@@ -93,7 +93,7 @@ add_filter('get_the_archive_title', function ($title) {
     return $title;
 });
 
-// STEP 2 
+// STEP 2 - Personnaliser le titre d’un article et de la page d’archive
 function the_category_filter($categories)
 {
     return str_replace("Outils", "Tous les outils", $categories);
@@ -102,7 +102,7 @@ function the_category_filter($categories)
 add_filter('the_category', 'the_category_filter');
 
 
-// STEP 3 
+// STEP 3 - Compléter la zone de contenu de la page de détail d’un outil
 function the_content_filter($content)
 {
     if (is_single() && in_category('outils')) {
@@ -112,3 +112,15 @@ function the_content_filter($content)
 }
 
 add_filter('the_content', 'the_content_filter');
+
+
+// STEP 4 - Ajouter un bouton pour accéder au détail d’un outil depuis la page d'archives
+function the_excerpt_filter($content)
+{
+    if (is_archive()) {
+        return $content . "<div class='more-excerpt'><a href='" . get_the_permalink() . "'>En savoir plus sur l'outil</a></div>";
+    }
+    return $content;
+}
+
+add_filter('the_excerpt', 'the_excerpt_filter');
