@@ -74,7 +74,7 @@ function banniere_titre_func($atts)
 
 /* HOOK FILTERS */
 
-
+// STEP 1 
 function the_title_filter($title)
 {
     if (is_single() && in_category('outils') && in_the_loop()) {
@@ -92,3 +92,11 @@ add_filter('get_the_archive_title', function ($title) {
     }
     return $title;
 });
+
+// STEP 2 
+function the_category_filter($categories)
+{
+    return str_replace("Outils", "Tous les outils", $categories);
+}
+
+add_filter('the_category', 'the_category_filter');
