@@ -100,3 +100,15 @@ function the_category_filter($categories)
 }
 
 add_filter('the_category', 'the_category_filter');
+
+
+// STEP 3 
+function the_content_filter($content)
+{
+    if (is_single() && in_category('outils')) {
+        return '<hr><h2>Description</h2>' . $content;
+    }
+    return $content;
+}
+
+add_filter('the_content', 'the_content_filter');
