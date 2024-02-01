@@ -62,7 +62,7 @@ function banniere_titre_func($atts)
             <h2 class="titre"><?= $atts['titre'] ?></h2>
         </div>
 
-<?php
+    <?php
     }
 
     //J'arrête de récupérer le flux d'information et le stock dans la fonction $output
@@ -124,3 +124,38 @@ function the_excerpt_filter($content)
 }
 
 add_filter('the_excerpt', 'the_excerpt_filter');
+
+
+/* HOOKS ACTIONS */
+
+// 1 - banniere titre après la loop des outils sur la page d'archive 
+function loop_end_action()
+{
+    if (is_archive()) :
+    ?>
+        <p class="after-loop">
+            <?php
+            echo do_shortcode('[banniere-titre src="http://bricotips.local/wp-content/uploads/2024/01/banniere-image.webp" titre="BricoTips"]');
+            ?>
+        </p>
+    <?php
+    endif;
+}
+
+add_action('loop_end', 'loop_end_action');
+
+// 2 - petit texte d'introduction avant le premier article (global shown)
+$shown = false;
+function bricotips_intro_section_action()
+{
+    global $shown;
+    if (is_archive() && !$shown) :
+    ?>
+        <p class="intro">Vous trouverez dans cette page la liste de tous les outils que nous avons référencée pour le
+            moment. La liste n'est pas exhaustive, mais s'enrichira au fur et à mesure.</p>
+<?php
+        $shown = true;
+    endif;
+}
+
+add_action('bricotips_intro_section', 'bricotips_intro_section_action');
