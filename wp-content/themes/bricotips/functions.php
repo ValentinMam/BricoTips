@@ -125,6 +125,14 @@ function the_excerpt_filter($content)
 
 add_filter('the_excerpt', 'the_excerpt_filter');
 
+// STEP 5 - Ajouter le texte "Pages :" avant le numéro de page dans la pagination des articles 
+function paginate_links_filter($r)
+{
+    return "Pages : " . $r;
+}
+
+add_filter('paginate_links_output', 'paginate_links_filter');
+
 
 /* HOOKS ACTIONS */
 
