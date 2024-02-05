@@ -58,11 +58,11 @@ function banniere_titre_func($atts)
     if ($atts['src'] != "") {
 ?>
 
-        <div class="banniere-titre" style="background-image: url(<?= $atts['src'] ?>)">
-            <h2 class="titre"><?= $atts['titre'] ?></h2>
-        </div>
+<div class="banniere-titre" style="background-image: url(<?= $atts['src'] ?>)">
+    <h2 class="titre"><?= $atts['titre'] ?></h2>
+</div>
 
-    <?php
+<?php
     }
 
     //J'arrête de récupérer le flux d'information et le stock dans la fonction $output
@@ -141,12 +141,12 @@ function loop_end_action()
 {
     if (is_archive()) :
     ?>
-        <p class="after-loop">
-            <?php
+<p class="after-loop">
+    <?php
             echo do_shortcode('[banniere-titre src="http://bricotips.local/wp-content/uploads/2024/01/banniere-image.webp" titre="BricoTips"]');
             ?>
-        </p>
-    <?php
+</p>
+<?php
     endif;
 }
 
@@ -159,11 +159,22 @@ function bricotips_intro_section_action()
     global $shown;
     if (is_archive() && !$shown) :
     ?>
-        <p class="intro">Vous trouverez dans cette page la liste de tous les outils que nous avons référencée pour le
-            moment. La liste n'est pas exhaustive, mais s'enrichira au fur et à mesure.</p>
+<p class="intro">Vous trouverez dans cette page la liste de tous les outils que nous avons référencée pour le
+    moment. La liste n'est pas exhaustive, mais s'enrichira au fur et à mesure.</p>
 <?php
         $shown = true;
     endif;
 }
 
 add_action('bricotips_intro_section', 'bricotips_intro_section_action');
+
+
+/* MODE MAINTENANCE */
+
+// function maintenace_mode()
+// {
+//     if (!current_user_can('administrator')) {
+//         wp_die('Maintenance en cours.');
+//     }
+// }
+// add_action('get_header', 'maintenace_mode');
