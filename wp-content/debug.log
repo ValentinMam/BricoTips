@@ -1,3 +1,4 @@
 [05-Feb-2024 05:46:53 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\Valentin\Local Sites\bricotips\app\public\wp-content\plugins\bricotips-login\includes\class-bricotips-login.php on line 161
 [05-Feb-2024 05:47:33 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\Valentin\Local Sites\bricotips\app\public\wp-content\plugins\bricotips-login\includes\class-bricotips-login.php on line 161
 [05-Feb-2024 05:50:32 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\Users\Valentin\Local Sites\bricotips\app\public\wp-content\plugins\bricotips-login\includes\class-bricotips-login.php on line 161
+[05-Feb-2024 07:55:22 UTC] PHP Warning:  Undefined property: Bricotips_Top_Contact_Public::$emai in C:\Users\Valentin\Local Sites\bricotips\app\public\wp-content\plugins\bricotips-top-contact\public\class-bricotips-top-contact-public.php on line 111

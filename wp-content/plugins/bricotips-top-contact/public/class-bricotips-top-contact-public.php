@@ -20,7 +20,8 @@
  * @subpackage Bricotips_Top_Contact/public
  * @author     Mr Brico <mrbrico@bricotips.fr>
  */
-class Bricotips_Top_Contact_Public {
+class Bricotips_Top_Contact_Public
+{
 
 	/**
 	 * The ID of this plugin.
@@ -47,11 +48,11 @@ class Bricotips_Top_Contact_Public {
 	 * @param      string    $plugin_name       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct($plugin_name, $version)
+	{
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
 	}
 
 	/**
@@ -59,7 +60,8 @@ class Bricotips_Top_Contact_Public {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -73,8 +75,7 @@ class Bricotips_Top_Contact_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/bricotips-top-contact-public.css', array(), $this->version, 'all' );
-
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/bricotips-top-contact-public.css', array(), $this->version, 'all');
 	}
 
 	/**
@@ -82,7 +83,8 @@ class Bricotips_Top_Contact_Public {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -96,27 +98,26 @@ class Bricotips_Top_Contact_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/bricotips-top-contact-public.js', array( 'jquery' ), $this->version, false );
-
+		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/bricotips-top-contact-public.js', array('jquery'), $this->version, false);
 	}
 
 	private $email = "info@bricotips.fr";
 
-	public function top_bar_contact() {
-        ?>
+	public function top_bar_contact()
+	{
+?>
 
-            <div id="bricotips-top-bar">
-                <div class="content">
-                    <div class="mail">
-                        Nous contacter par email: <a href="mailto:info@bricotips.fr"><?= $this->emai ?></a>
-                    </div>
-                    <div class="discord">
-                        Suivez-nous sur discord: <a href="#">#bricoTips</a>
-                    </div>
-                </div>
-            </div>
+<div id="bricotips-top-bar">
+    <div class="content">
+        <div class="mail">
+            Nous contacter par email: <a href="mailto:info@bricotips.fr"><?= $this->email ?></a>
+        </div>
+        <div class="discord">
+            Suivez-nous sur discord: <a href="#">#bricoTips</a>
+        </div>
+    </div>
+</div>
 
-        <?php
+<?php
 	}
-
 }
